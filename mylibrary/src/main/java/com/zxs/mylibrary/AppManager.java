@@ -11,7 +11,7 @@ public class AppManager {
 
     private static Stack<Activity> activityStack;
 
-    private static com.zmc.core.utils.AppManager instance;
+    private static AppManager instance;
 
     private AppManager() {
     }
@@ -19,9 +19,9 @@ public class AppManager {
     /**
      * 单一实例
      */
-    public static com.zmc.core.utils.AppManager getAppManager() {
+    public static AppManager getAppManager() {
         if (instance == null) {
-            instance = new com.zmc.core.utils.AppManager();
+            instance = new AppManager();
         }
         return instance;
     }

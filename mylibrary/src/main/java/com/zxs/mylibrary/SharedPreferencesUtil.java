@@ -10,7 +10,7 @@ import android.content.SharedPreferences;
  * .
  */
 public class SharedPreferencesUtil {
-    private static com.zmc.core.utils.SharedPreferencesUtil instance;
+    private static SharedPreferencesUtil instance;
 
     private SharedPreferences sp;
     private SharedPreferences.Editor editor;
@@ -28,16 +28,16 @@ public class SharedPreferencesUtil {
         editor = sp.edit();
     }
 
-    public static com.zmc.core.utils.SharedPreferencesUtil get(Context context) {
+    public static SharedPreferencesUtil get(Context context) {
         if (instance == null) {
-            instance = new com.zmc.core.utils.SharedPreferencesUtil(context);
+            instance = new SharedPreferencesUtil(context);
         }
         return instance;
     }
 
-    public static com.zmc.core.utils.SharedPreferencesUtil get(Context context, String spName) {
+    public static SharedPreferencesUtil get(Context context, String spName) {
         if (instance == null) {
-            instance = new com.zmc.core.utils.SharedPreferencesUtil(context, spName);
+            instance = new SharedPreferencesUtil(context, spName);
         }
         return instance;
     }
@@ -58,7 +58,7 @@ public class SharedPreferencesUtil {
 
     /******************** String ********************/
 
-    public com.zmc.core.utils.SharedPreferencesUtil put(String key, String value) {
+    public SharedPreferencesUtil put(String key, String value) {
         editor.putString(key, value);
         editor.commit();
         return this;
@@ -74,7 +74,7 @@ public class SharedPreferencesUtil {
 
     /******************** int ********************/
 
-    public com.zmc.core.utils.SharedPreferencesUtil put(String key, int value) {
+    public SharedPreferencesUtil put(String key, int value) {
         editor.putInt(key, value);
         editor.commit();
         return this;
@@ -90,7 +90,7 @@ public class SharedPreferencesUtil {
 
     /******************** long ********************/
 
-    public com.zmc.core.utils.SharedPreferencesUtil put(String key, long value) {
+    public SharedPreferencesUtil put(String key, long value) {
         editor.putLong(key, value);
         editor.commit();
         return this;
@@ -106,7 +106,7 @@ public class SharedPreferencesUtil {
 
     /******************** float ********************/
 
-    public com.zmc.core.utils.SharedPreferencesUtil put(String key, float value) {
+    public SharedPreferencesUtil put(String key, float value) {
         editor.putFloat(key, value);
         editor.commit();
         return this;
@@ -122,7 +122,7 @@ public class SharedPreferencesUtil {
 
     /******************** boolean ********************/
 
-    public com.zmc.core.utils.SharedPreferencesUtil put(String key, boolean value) {
+    public SharedPreferencesUtil put(String key, boolean value) {
         editor.putBoolean(key, value);
         editor.commit();
         return this;

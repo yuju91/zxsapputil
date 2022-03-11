@@ -44,28 +44,28 @@ public class ACache {
     private static Map<String, ACache> mInstanceMap = new HashMap<String, ACache>();
     private ACacheManager mCache;
 
-    public static com.zmc.core.utils.ACache get(Context ctx) {
+    public static ACache get(Context ctx) {
         return get(ctx, "ACache");
     }
 
-    public static com.zmc.core.utils.ACache get(Context ctx, String cacheName) {
+    public static ACache get(Context ctx, String cacheName) {
         File f = new File(ctx.getCacheDir(), cacheName);
         return get(f, MAX_SIZE, MAX_COUNT);
     }
 
-    public static com.zmc.core.utils.ACache get(File cacheDir) {
+    public static ACache get(File cacheDir) {
         return get(cacheDir, MAX_SIZE, MAX_COUNT);
     }
 
-    public static com.zmc.core.utils.ACache get(Context ctx, long max_zise, int max_count) {
+    public static ACache get(Context ctx, long max_zise, int max_count) {
         File f = new File(ctx.getCacheDir(), "ACache");
         return get(f, max_zise, max_count);
     }
 
-    public static com.zmc.core.utils.ACache get(File cacheDir, long max_zise, int max_count) {
-        com.zmc.core.utils.ACache manager = mInstanceMap.get(cacheDir.getAbsoluteFile() + myPid());
+    public static ACache get(File cacheDir, long max_zise, int max_count) {
+       ACache manager = mInstanceMap.get(cacheDir.getAbsoluteFile() + myPid());
         if (manager == null) {
-            manager = new com.zmc.core.utils.ACache(cacheDir, max_zise, max_count);
+            manager = new ACache(cacheDir, max_zise, max_count);
             mInstanceMap.put(cacheDir.getAbsolutePath() + myPid(), manager);
         }
         return manager;

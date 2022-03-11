@@ -7,7 +7,7 @@ package com.zxs.mylibrary;
 
 import android.util.Log;
 
-import com.zmc.core.BuildConfig;
+
 
 
 /**

@@ -13,9 +13,9 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
-import com.luck.picture.lib.utils.ToastUtils;
-import com.zmc.core.base.BaseApp;
+
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -334,7 +334,7 @@ public class AppUtils {
         int versionCode = 0;
         try {
             // 获取软件版本号，对应AndroidManifest.xml下android:versionCode
-            versionCode = activity.getPackageManager().getPackageInfo(BaseApp.getInstance().getPackage(), 0).versionCode;
+            versionCode = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0).versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -402,13 +402,14 @@ public class AppUtils {
     public static String getFileName(String serverurl) {
         return serverurl.substring(serverurl.lastIndexOf("/") + 1);
     }
+
     //保存图片
     public static void saveImage(Context context, Bitmap image, String tip, String fileUrl) {
         String saveImagePath = null;
         Random random = new Random();
         String imageFileName = "JPEG_" + getTime() + ".jpg";
         File storageDir = new File(Environment.getExternalStoragePublicDirectory
-                (Environment.DIRECTORY_PICTURES) + BaseApp.getInstance().getPackage() + "/" + fileUrl);
+                (Environment.DIRECTORY_PICTURES) + context.getPackageName() + "/" + fileUrl);
         boolean success = true;
         if (!storageDir.exists()) {
             success = storageDir.mkdirs();
@@ -426,7 +427,7 @@ public class AppUtils {
 
             // Add the image to the system gallery
             galleryAddPic(context, saveImagePath);
-            ToastUtils.showToast(context, tip + saveImagePath);
+            Toast.makeText(context, tip + saveImagePath, Toast.LENGTH_SHORT).show();
         }
         //        return saveImagePath;
     }
@@ -443,7 +444,7 @@ public class AppUtils {
     //当前时间
     public static String getTime() {
         SimpleDateFormat sdf = new SimpleDateFormat();// 格式化时间
-        sdf.applyPattern(com.zmc.core.utils.DateUtil.yyyy_MM_dd_HH_mm_ss);// a为am/pm的标记
+        sdf.applyPattern(DateUtil.yyyy_MM_dd_HH_mm_ss);// a为am/pm的标记
         Date date = new Date();// 获取当前时间
         return sdf.format(date);// 输出已经格式化的现在时间（24小时制）
     }
