@@ -1,4 +1,4 @@
-package com.zxs.mylibrary;
+package com.zxs.commonlyUtil;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -36,36 +36,36 @@ import java.util.concurrent.atomic.AtomicLong;
  * on 2022/2/11
  * 缓存类
  */
-public class ACache {
+public class GtACache {
     public static final int TIME_HOUR = 60 * 60;
     public static final int TIME_DAY = TIME_HOUR * 24;
     private static final int MAX_SIZE = 1000 * 1000 * 50; // 50 mb
     private static final int MAX_COUNT = Integer.MAX_VALUE; // 不限制存放数据的数量
-    private static Map<String, ACache> mInstanceMap = new HashMap<String, ACache>();
+    private static Map<String, GtACache> mInstanceMap = new HashMap<String, GtACache>();
     private ACacheManager mCache;
 
-    public static ACache get(Context ctx) {
+    public static GtACache get(Context ctx) {
         return get(ctx, "ACache");
     }
 
-    public static ACache get(Context ctx, String cacheName) {
+    public static GtACache get(Context ctx, String cacheName) {
         File f = new File(ctx.getCacheDir(), cacheName);
         return get(f, MAX_SIZE, MAX_COUNT);
     }
 
-    public static ACache get(File cacheDir) {
+    public static GtACache get(File cacheDir) {
         return get(cacheDir, MAX_SIZE, MAX_COUNT);
     }
 
-    public static ACache get(Context ctx, long max_zise, int max_count) {
+    public static GtACache get(Context ctx, long max_zise, int max_count) {
         File f = new File(ctx.getCacheDir(), "ACache");
         return get(f, max_zise, max_count);
     }
 
-    public static ACache get(File cacheDir, long max_zise, int max_count) {
-       ACache manager = mInstanceMap.get(cacheDir.getAbsoluteFile() + myPid());
+    public static GtACache get(File cacheDir, long max_zise, int max_count) {
+       GtACache manager = mInstanceMap.get(cacheDir.getAbsoluteFile() + myPid());
         if (manager == null) {
-            manager = new ACache(cacheDir, max_zise, max_count);
+            manager = new GtACache(cacheDir, max_zise, max_count);
             mInstanceMap.put(cacheDir.getAbsolutePath() + myPid(), manager);
         }
         return manager;
@@ -75,7 +75,7 @@ public class ACache {
         return "_" + android.os.Process.myPid();
     }
 
-    private ACache(File cacheDir, long max_size, int max_count) {
+    private GtACache(File cacheDir, long max_size, int max_count) {
         if (!cacheDir.exists() && !cacheDir.mkdirs()) {
             throw new RuntimeException("can't make dirs in "
                     + cacheDir.getAbsolutePath());

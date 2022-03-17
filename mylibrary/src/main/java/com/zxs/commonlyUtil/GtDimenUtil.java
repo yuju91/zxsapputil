@@ -1,4 +1,4 @@
-package com.zxs.mylibrary;
+package com.zxs.commonlyUtil;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -13,7 +13,7 @@ import java.lang.reflect.Field;
  *
  * @author Bob Ackles
  */
-public class DimenUtil {
+public class GtDimenUtil {
     
     public static final int DEFAULT_TOOLBAR_HEIGHT_IN_DP = 56;
     

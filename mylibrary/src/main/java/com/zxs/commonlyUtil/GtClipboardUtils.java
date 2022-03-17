@@ -1,4 +1,4 @@
-package com.zxs.mylibrary;
+package com.zxs.commonlyUtil;
 
 import android.content.Context;
 
@@ -6,7 +6,7 @@ import android.content.Context;
  * Created by zxs
  * on 2022/2/11
  */
-public class ClipboardUtils {
+public class GtClipboardUtils {
     /**
      * 复制内容到剪切板
      *

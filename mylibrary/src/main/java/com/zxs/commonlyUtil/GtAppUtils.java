@@ -1,4 +1,4 @@
-package com.zxs.mylibrary;
+package com.zxs.commonlyUtil;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -41,7 +41,7 @@ import java.util.Vector;
 /**
  * 地址相关工具类
  */
-public class AppUtils {
+public class GtAppUtils {
     //地址拆分
     public static String[] divAddress(String address) {
         String[] res = new String[2];
@@ -444,7 +444,7 @@ public class AppUtils {
     //当前时间
     public static String getTime() {
         SimpleDateFormat sdf = new SimpleDateFormat();// 格式化时间
-        sdf.applyPattern(DateUtil.yyyy_MM_dd_HH_mm_ss);// a为am/pm的标记
+        sdf.applyPattern(GtDateUtil.yyyy_MM_dd_HH_mm_ss);// a为am/pm的标记
         Date date = new Date();// 获取当前时间
         return sdf.format(date);// 输出已经格式化的现在时间（24小时制）
     }

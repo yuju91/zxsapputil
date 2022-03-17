@@ -1,4 +1,4 @@
-package com.zxs.mylibrary;
+package com.zxs.commonlyUtil;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -22,7 +22,7 @@ import java.util.Hashtable;
  * on 2020/4/17
  *  二维码工具类
  */
-public class QRCodeUtil {
+public class GtQRCodeUtil {
     /**
      * 创建二维码位图
      *

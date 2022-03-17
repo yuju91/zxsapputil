@@ -1,4 +1,4 @@
-package com.zxs.mylibrary;
+package com.zxs.commonlyUtil;
 
 import android.os.Handler;
 
@@ -10,11 +10,11 @@ import java.util.Map;
  * on 2019/11/29
  * 循环类
  */
-public class PollingUtil {
+public class GtPollingUtil {
     private Handler mHanlder;
     private Map<Runnable, Runnable> mTaskMap = new HashMap<Runnable, Runnable>();
 
-    public PollingUtil(Handler handler) {
+    public GtPollingUtil(Handler handler) {
         mHanlder = handler;
     }
 

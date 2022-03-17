@@ -1,4 +1,4 @@
-package com.zxs.mylibrary;
+package com.zxs.commonlyUtil;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -7,21 +7,21 @@ import android.content.Context;
 import java.util.Stack;
 
 
-public class AppManager {
+public class GtAppManager {
 
     private static Stack<Activity> activityStack;
 
-    private static AppManager instance;
+    private static GtAppManager instance;
 
-    private AppManager() {
+    private GtAppManager() {
     }
 
     /**
      * 单一实例
      */
-    public static AppManager getAppManager() {
+    public static GtAppManager getAppManager() {
         if (instance == null) {
-            instance = new AppManager();
+            instance = new GtAppManager();
         }
         return instance;
     }

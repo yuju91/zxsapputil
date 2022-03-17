@@ -1,4 +1,4 @@
-package com.zxs.mylibrary;
+package com.zxs.commonlyUtil;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,35 +9,35 @@ import android.content.SharedPreferences;
  * on 2022/2/11
  * .
  */
-public class SharedPreferencesUtil {
-    private static SharedPreferencesUtil instance;
+public class GtSharedPreferencesUtil {
+    private static GtSharedPreferencesUtil instance;
 
     private SharedPreferences sp;
     private SharedPreferences.Editor editor;
     private String SP_NAME = "sp_name";
 
     @SuppressLint("CommitPrefEdits")
-    public SharedPreferencesUtil(Context context) {
+    public GtSharedPreferencesUtil(Context context) {
         sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         editor = sp.edit();
     }
 
     @SuppressLint("CommitPrefEdits")
-    public SharedPreferencesUtil(Context context, String spName) {
+    public GtSharedPreferencesUtil(Context context, String spName) {
         sp = context.getSharedPreferences(spName, Context.MODE_PRIVATE);
         editor = sp.edit();
     }
 
-    public static SharedPreferencesUtil get(Context context) {
+    public static GtSharedPreferencesUtil get(Context context) {
         if (instance == null) {
-            instance = new SharedPreferencesUtil(context);
+            instance = new GtSharedPreferencesUtil(context);
         }
         return instance;
     }
 
-    public static SharedPreferencesUtil get(Context context, String spName) {
+    public static GtSharedPreferencesUtil get(Context context, String spName) {
         if (instance == null) {
-            instance = new SharedPreferencesUtil(context, spName);
+            instance = new GtSharedPreferencesUtil(context, spName);
         }
         return instance;
     }
@@ -58,7 +58,7 @@ public class SharedPreferencesUtil {
 
     /******************** String ********************/
 
-    public SharedPreferencesUtil put(String key, String value) {
+    public GtSharedPreferencesUtil put(String key, String value) {
         editor.putString(key, value);
         editor.commit();
         return this;
@@ -74,7 +74,7 @@ public class SharedPreferencesUtil {
 
     /******************** int ********************/
 
-    public SharedPreferencesUtil put(String key, int value) {
+    public GtSharedPreferencesUtil put(String key, int value) {
         editor.putInt(key, value);
         editor.commit();
         return this;
@@ -90,7 +90,7 @@ public class SharedPreferencesUtil {
 
     /******************** long ********************/
 
-    public SharedPreferencesUtil put(String key, long value) {
+    public GtSharedPreferencesUtil put(String key, long value) {
         editor.putLong(key, value);
         editor.commit();
         return this;
@@ -106,7 +106,7 @@ public class SharedPreferencesUtil {
 
     /******************** float ********************/
 
-    public SharedPreferencesUtil put(String key, float value) {
+    public GtSharedPreferencesUtil put(String key, float value) {
         editor.putFloat(key, value);
         editor.commit();
         return this;
@@ -122,7 +122,7 @@ public class SharedPreferencesUtil {
 
     /******************** boolean ********************/
 
-    public SharedPreferencesUtil put(String key, boolean value) {
+    public GtSharedPreferencesUtil put(String key, boolean value) {
         editor.putBoolean(key, value);
         editor.commit();
         return this;

@@ -3,7 +3,7 @@
  * All Rights Reserved.
  */
 
-package com.zxs.mylibrary;
+package com.zxs.commonlyUtil;
 
 import android.util.Log;
 
@@ -13,7 +13,7 @@ import android.util.Log;
 /**
  * Log统一管理类
  */
-public class LogUtil {
+public class GtLogUtil {
 
     private static boolean isDebug = BuildConfig.DEBUG;//是否需要打印bug，buildTypes.debug中配置
 

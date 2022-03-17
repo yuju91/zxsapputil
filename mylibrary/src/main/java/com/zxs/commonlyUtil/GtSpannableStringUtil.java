@@ -1,4 +1,4 @@
-package com.zxs.mylibrary;
+package com.zxs.commonlyUtil;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -24,7 +24,7 @@ import android.text.style.UnderlineSpan;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
-public class SpannableStringUtil {
+public class GtSpannableStringUtil {
 	
 	////////////////////////////// Color //////////////////////////////
 
